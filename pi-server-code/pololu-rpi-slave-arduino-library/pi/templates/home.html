@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" media="all" href="static/main.css">
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="static/main.js?7"></script>
+
+<title>Romi-Raspberry Pi Robot Control Panel</title>
+</head>
+
+<body onload="init();">
+
+<div id="container">
+
+<h1>Romi-Raspberry Pi Robot Control Panel</h1>
+<h2>Hackberry Pi Project by Mihir Dhamankar</h2>
+<div class="top">
+  <div class="buttons">
+    <a href="/halt" onClick="return shutdown()" class="material-icons bigbutton" style="font-size: 40px">power_settings_new</a>
+    <a id="photo" href="photo" class="material-icons bigbutton" download style="font-size: 40px">
+        photo_camera
+    </a>
+    <a name="audio" class="material-icons bigbutton" style="font-size: 40px" onclick="recognition.start()">
+        mic
+    </a>
+  </div>
+  <img id="stream" src="{{ url_for('video_feed') }}" width="640" height="480">
+  <div class="rightcol">
+    <p>
+      <input type="text" id="notes" maxlength="14" value="l16ceg>c">
+      <button onclick="playNotes()">Play</button>
+    </p>
+    <table>
+      <tr><th>Battery</th><td class="wide"><span id="battery_millivolts"></span> mV</td></tr>
+    </table>
+    <div id="joystick">
+    </div>
+    <p class="output"><em>...diagnostic messages</em></p>
+  </div>
+</div>
+
+</div>
+</body>
+
+</html>
